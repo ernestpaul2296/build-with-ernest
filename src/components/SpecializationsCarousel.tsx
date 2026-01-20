@@ -53,7 +53,7 @@ const SpecializationsCarousel = () => {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % specializations.length);
-    }, 5000);
+    }, 1500); // Reduced to 30% of original 5000ms
 
     return () => clearInterval(timer);
   }, []);
@@ -100,7 +100,7 @@ const SpecializationsCarousel = () => {
       </div>
 
       {/* Carousel container */}
-      <div className="relative h-[280px] sm:h-[220px] overflow-hidden">
+      <div className="relative h-[340px] sm:h-[280px] overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}

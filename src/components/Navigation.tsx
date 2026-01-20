@@ -66,7 +66,7 @@ const Navigation = () => {
                 className="gradient-primary text-primary-foreground font-medium"
                 onClick={() => scrollToSection("#contact")}
               >
-                Hire Me
+                Let's Collaborate
               </Button>
             </div>
 
@@ -106,7 +106,7 @@ const Navigation = () => {
                 className="gradient-primary text-primary-foreground font-medium mt-4"
                 onClick={() => scrollToSection("#contact")}
               >
-                Hire Me
+                Let's Collaborate
               </Button>
             </div>
           </motion.div>

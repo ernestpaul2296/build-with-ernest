@@ -66,7 +66,7 @@ const Hero = () => {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Available for opportunities
+              Open to collaborations & new projects
             </span>
           </motion.div>
 
@@ -86,18 +86,31 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground text-center mb-10 max-w-3xl mx-auto text-balance"
+            className="text-xl md:text-2xl text-muted-foreground text-center mb-8 max-w-3xl mx-auto text-balance"
           >
             Full Stack Engineer crafting{" "}
             <span className="text-foreground font-medium">Web, Mobile & AI Solutions</span>{" "}
             that scale to millions of users
           </motion.p>
 
+          {/* Specializations Carousel - moved above tech categories */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mb-12"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              What I <span className="gradient-text">Specialize</span> In
+            </h2>
+            <SpecializationsCarousel />
+          </motion.div>
+
           {/* Tech categories */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             className="space-y-4 mb-12"
           >
             {techCategories.map((category, catIndex) => (
@@ -131,27 +144,23 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button size="lg" className="gradient-primary text-primary-foreground font-semibold px-8 glow-primary hover:glow-strong transition-shadow">
+            <Button 
+              size="lg" 
+              className="gradient-primary text-primary-foreground font-semibold px-8 glow-primary hover:glow-strong transition-shadow"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Mail className="w-5 h-5 mr-2" />
               Get in Touch
             </Button>
-            <Button size="lg" variant="outline" className="border-border hover:border-primary hover:text-primary">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-border hover:border-primary hover:text-primary"
+              onClick={() => window.open('https://www.linkedin.com/in/ernestpaul/', '_blank')}
+            >
               <Linkedin className="w-5 h-5 mr-2" />
               LinkedIn
             </Button>
-          </motion.div>
-
-          {/* Specializations Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="mb-20"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-              What I <span className="gradient-text">Specialize</span> In
-            </h2>
-            <SpecializationsCarousel />
           </motion.div>
 
           {/* Stats */}

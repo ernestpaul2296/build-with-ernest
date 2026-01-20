@@ -82,22 +82,17 @@ const TechStack = () => {
               <h3 className="text-lg font-semibold mb-6 pb-3 border-b border-border">
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
                 {category.techs.map((tech, techIndex) => (
-                  <div key={tech.name}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium">{tech.name}</span>
-                      <span className="text-xs text-muted-foreground font-mono">{tech.level}%</span>
-                    </div>
-                    <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${tech.level}%` } : {}}
-                        transition={{ duration: 1, delay: 0.3 + catIndex * 0.1 + techIndex * 0.05 }}
-                        className="h-full gradient-primary rounded-full"
-                      />
-                    </div>
-                  </div>
+                  <motion.span
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.3, delay: 0.3 + catIndex * 0.1 + techIndex * 0.05 }}
+                    className="px-3 py-1.5 rounded-lg bg-secondary/50 text-foreground text-sm font-medium border border-border hover:border-primary/30 hover:text-primary transition-colors cursor-default"
+                  >
+                    {tech.name}
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
