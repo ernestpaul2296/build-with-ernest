@@ -4,12 +4,6 @@ import { Button } from "@/components/ui/button";
 import SpecializationsCarousel from "./SpecializationsCarousel";
 
 const Hero = () => {
-  const stats = [
-    { value: "1M+", label: "Users Reached" },
-    { value: "$45M+", label: "Annual Transactions" },
-    { value: "545K+", label: "Active Users" },
-    { value: "5+", label: "Years Experience" },
-  ];
 
   const techCategories = [
     {
@@ -156,33 +150,13 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-border hover:border-primary hover:text-primary"
-              onClick={() => window.open('https://www.linkedin.com/in/ernestpaul/', '_blank')}
+              onClick={() => window.open('https://www.linkedin.com/in/ernest-paul/', '_blank')}
             >
               <Linkedin className="w-5 h-5 mr-2" />
               LinkedIn
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-          >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                className="text-center p-6 rounded-2xl gradient-card border border-border/50 hover:border-primary/30 transition-colors"
-              >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
 
         {/* Scroll indicator */}

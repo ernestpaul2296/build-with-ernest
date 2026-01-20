@@ -53,7 +53,7 @@ const SpecializationsCarousel = () => {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % specializations.length);
-    }, 1500); // Reduced to 30% of original 5000ms
+    }, 4000); // 4 seconds
 
     return () => clearInterval(timer);
   }, []);
