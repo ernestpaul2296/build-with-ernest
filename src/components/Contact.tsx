@@ -25,7 +25,7 @@ const Contact = () => {
       icon: Linkedin,
       label: "LinkedIn",
       value: "linkedin.com/in/ernest-paul",
-      href: "https://www.linkedin.com/in/ernest-paul"
+      href: "https://www.linkedin.com/in/ernest-paul/"
     },
     {
       icon: MapPin,

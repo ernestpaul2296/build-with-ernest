@@ -72,21 +72,6 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
-              {["Dubai, UAE", "PMP Certified", "Scrum Master"].map((tag, i) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 rounded-full border border-border bg-card text-sm text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </motion.div>
           </div>
 
           {/* Right - Highlights grid */}

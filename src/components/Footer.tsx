@@ -23,7 +23,7 @@ const Footer = () => {
             className="flex items-center gap-4"
           >
             <a
-              href="https://www.linkedin.com/in/ernest-paul"
+              href="https://www.linkedin.com/in/ernest-paul/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"

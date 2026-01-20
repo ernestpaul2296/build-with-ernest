@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Smartphone, Globe, Bot, Workflow, Rocket, Shield } from "lucide-react";
+import { Smartphone, Globe, Bot, Workflow, Rocket } from "lucide-react";
 
 const Services = () => {
   const ref = useRef(null);
@@ -37,12 +37,6 @@ const Services = () => {
       title: "MVP Development",
       description: "Rapid prototyping and proof-of-concept development for startups",
       tech: ["Agile", "Scrum", "Fast Iteration"]
-    },
-    {
-      icon: Shield,
-      title: "Security & DevOps",
-      description: "Secure, compliant applications with robust CI/CD pipelines",
-      tech: ["CI/CD", "Security", "Testing"]
     }
   ];
 
