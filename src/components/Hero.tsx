@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Phone, Linkedin } from "lucide-react";
+import { ArrowDown, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SpecializationsCarousel from "./SpecializationsCarousel";
 
 const Hero = () => {
   const stats = [
@@ -10,8 +11,27 @@ const Hero = () => {
     { value: "5+", label: "Years Experience" },
   ];
 
+  const techCategories = [
+    {
+      label: "Programming Languages",
+      techs: ["JavaScript", "TypeScript", "Python", "Dart"],
+    },
+    {
+      label: "Frontend Technologies",
+      techs: ["Flutter", "React.js", "Next.js", "OutSystems"],
+    },
+    {
+      label: "Backend & Databases",
+      techs: ["Node.js", "Express.js", "NestJS", "MongoDB"],
+    },
+    {
+      label: "AI & Automation",
+      techs: ["LLMs", "Generative AI", "Agentic AI", "LangChain", "CrewAI", "LangGraph", "n8n", "MCP"],
+    },
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero pt-24 pb-32">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -66,28 +86,41 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground text-center mb-8 max-w-3xl mx-auto text-balance"
+            className="text-xl md:text-2xl text-muted-foreground text-center mb-10 max-w-3xl mx-auto text-balance"
           >
-            Full Stack Engineer crafting <span className="text-foreground font-medium">Web, Mobile & AI Solutions</span> that scale to millions of users
+            Full Stack Engineer crafting{" "}
+            <span className="text-foreground font-medium">Web, Mobile & AI Solutions</span>{" "}
+            that scale to millions of users
           </motion.p>
 
-          {/* Tech stack pills */}
+          {/* Tech categories */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="space-y-4 mb-12"
           >
-            {["Flutter", "React", "Node.js", "TypeScript", "AI/LLMs", "MERN Stack"].map((tech, i) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.4 + i * 0.05 }}
-                className="px-4 py-2 rounded-lg bg-secondary/50 text-muted-foreground text-sm font-mono border border-border hover:border-primary/50 hover:text-primary transition-colors cursor-default"
+            {techCategories.map((category, catIndex) => (
+              <motion.div
+                key={category.label}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + catIndex * 0.1 }}
+                className="flex flex-wrap items-center justify-center gap-2"
               >
-                {tech}
-              </motion.span>
+                <span className="text-sm font-semibold text-primary mr-2">{category.label}:</span>
+                {category.techs.map((tech, techIndex) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.5 + catIndex * 0.1 + techIndex * 0.03 }}
+                    className="px-3 py-1 rounded-md bg-secondary/50 text-muted-foreground text-sm font-mono border border-border hover:border-primary/50 hover:text-primary transition-colors cursor-default"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </motion.div>
             ))}
           </motion.div>
 
@@ -95,7 +128,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <Button size="lg" className="gradient-primary text-primary-foreground font-semibold px-8 glow-primary hover:glow-strong transition-shadow">
@@ -108,11 +141,24 @@ const Hero = () => {
             </Button>
           </motion.div>
 
+          {/* Specializations Carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mb-20"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              What I <span className="gradient-text">Specialize</span> In
+            </h2>
+            <SpecializationsCarousel />
+          </motion.div>
+
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
             {stats.map((stat, i) => (
@@ -120,7 +166,7 @@ const Hero = () => {
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
                 className="text-center p-6 rounded-2xl gradient-card border border-border/50 hover:border-primary/30 transition-colors"
               >
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
