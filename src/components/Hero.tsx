@@ -15,7 +15,7 @@ const Hero = () => {
   const [typingComplete, setTypingComplete] = useState(false);
 
   useEffect(() => {
-    const titleDuration = 5000; // 5 seconds for title
+    const titleDuration = 4000; // 4 seconds for title
     const subtitleDuration = 5000; // 5 seconds for subtitle
     const gapDuration = 1000; // 1 second gap
     
@@ -115,12 +115,17 @@ const Hero = () => {
 
           {/* Main heading with typewriter effect */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 tracking-tight min-h-[1.2em]">
-            {displayedTitle.split("Ernest Paul")[0]}
-            {displayedTitle.includes("Ernest Paul") && (
-              <span className="gradient-text">Ernest Paul</span>
-            )}
-            {!displayedTitle.includes("Ernest Paul") && displayedTitle.includes("I'm ") && (
-              <span className="gradient-text">{displayedTitle.split("I'm ")[1]}</span>
+            {displayedTitle.includes("Ernest Paul") ? (
+              <>
+                Hi, I'm <span className="gradient-text">Ernest Paul</span>
+              </>
+            ) : (
+              <>
+                {displayedTitle.substring(0, 8)}
+                {displayedTitle.length > 8 && (
+                  <span className="gradient-text">{displayedTitle.substring(8)}</span>
+                )}
+              </>
             )}
             {showCursor && displayedSubtitle.length === 0 && (
               <span className="animate-pulse text-primary">|</span>
