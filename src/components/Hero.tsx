@@ -2,8 +2,50 @@ import { motion } from "framer-motion";
 import { ArrowDown, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SpecializationsCarousel from "./SpecializationsCarousel";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const fullText = "Hi, I'm Ernest Paul";
+  const subtitleText = "Full Stack Engineer crafting Web, Mobile & AI Solutions that scale to millions of users";
+  
+  const [displayedTitle, setDisplayedTitle] = useState("");
+  const [displayedSubtitle, setDisplayedSubtitle] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const totalDuration = 5000; // 5 seconds total
+    const titleDuration = (fullText.length / (fullText.length + subtitleText.length)) * totalDuration;
+    const subtitleDuration = totalDuration - titleDuration;
+    
+    const titleInterval = titleDuration / fullText.length;
+    const subtitleInterval = subtitleDuration / subtitleText.length;
+
+    let titleIndex = 0;
+    let subtitleIndex = 0;
+
+    // Type title first
+    const titleTimer = setInterval(() => {
+      if (titleIndex < fullText.length) {
+        setDisplayedTitle(fullText.slice(0, titleIndex + 1));
+        titleIndex++;
+      } else {
+        clearInterval(titleTimer);
+        // Start typing subtitle
+        const subtitleTimer = setInterval(() => {
+          if (subtitleIndex < subtitleText.length) {
+            setDisplayedSubtitle(subtitleText.slice(0, subtitleIndex + 1));
+            subtitleIndex++;
+          } else {
+            clearInterval(subtitleTimer);
+            // Hide cursor after typing is complete
+            setTimeout(() => setShowCursor(false), 500);
+          }
+        }, subtitleInterval);
+      }
+    }, titleInterval);
+
+    return () => clearInterval(titleTimer);
+  }, []);
 
   const techCategories = [
     {
@@ -64,28 +106,35 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 tracking-tight"
-          >
-            Hi, I'm{" "}
-            <span className="gradient-text">Ernest Paul</span>
-          </motion.h1>
+          {/* Main heading with typewriter effect */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 tracking-tight min-h-[1.2em]">
+            {displayedTitle.split("Ernest Paul")[0]}
+            {displayedTitle.includes("Ernest Paul") && (
+              <span className="gradient-text">Ernest Paul</span>
+            )}
+            {!displayedTitle.includes("Ernest Paul") && displayedTitle.includes("I'm ") && (
+              <span className="gradient-text">{displayedTitle.split("I'm ")[1]}</span>
+            )}
+            {showCursor && displayedSubtitle.length === 0 && (
+              <span className="animate-pulse text-primary">|</span>
+            )}
+          </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground text-center mb-8 max-w-3xl mx-auto text-balance"
-          >
-            Full Stack Engineer crafting{" "}
-            <span className="text-foreground font-medium">Web, Mobile & AI Solutions</span>{" "}
-            that scale to millions of users
-          </motion.p>
+          {/* Subtitle with typewriter effect */}
+          <p className="text-xl md:text-2xl text-muted-foreground text-center mb-8 max-w-3xl mx-auto text-balance min-h-[2em]">
+            {displayedSubtitle.includes("Web, Mobile & AI Solutions") ? (
+              <>
+                {displayedSubtitle.split("Web, Mobile & AI Solutions")[0]}
+                <span className="text-foreground font-medium">Web, Mobile & AI Solutions</span>
+                {displayedSubtitle.split("Web, Mobile & AI Solutions")[1]}
+              </>
+            ) : (
+              displayedSubtitle
+            )}
+            {showCursor && displayedSubtitle.length > 0 && (
+              <span className="animate-pulse text-primary">|</span>
+            )}
+          </p>
 
           {/* Specializations Carousel - moved above tech categories */}
           <motion.div
