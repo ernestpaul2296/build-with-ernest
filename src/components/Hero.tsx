@@ -12,10 +12,12 @@ const Hero = () => {
   const [displayedSubtitle, setDisplayedSubtitle] = useState("");
   const [showCursor, setShowCursor] = useState(true);
 
+  const [typingComplete, setTypingComplete] = useState(false);
+
   useEffect(() => {
-    const totalDuration = 5000; // 5 seconds total
-    const titleDuration = (fullText.length / (fullText.length + subtitleText.length)) * totalDuration;
-    const subtitleDuration = totalDuration - titleDuration;
+    const titleDuration = 5000; // 5 seconds for title
+    const subtitleDuration = 5000; // 5 seconds for subtitle
+    const gapDuration = 1000; // 1 second gap
     
     const titleInterval = titleDuration / fullText.length;
     const subtitleInterval = subtitleDuration / subtitleText.length;
@@ -23,24 +25,29 @@ const Hero = () => {
     let titleIndex = 0;
     let subtitleIndex = 0;
 
-    // Type title first
+    // Type title first (5 seconds)
     const titleTimer = setInterval(() => {
       if (titleIndex < fullText.length) {
         setDisplayedTitle(fullText.slice(0, titleIndex + 1));
         titleIndex++;
       } else {
         clearInterval(titleTimer);
-        // Start typing subtitle
-        const subtitleTimer = setInterval(() => {
-          if (subtitleIndex < subtitleText.length) {
-            setDisplayedSubtitle(subtitleText.slice(0, subtitleIndex + 1));
-            subtitleIndex++;
-          } else {
-            clearInterval(subtitleTimer);
-            // Hide cursor after typing is complete
-            setTimeout(() => setShowCursor(false), 500);
-          }
-        }, subtitleInterval);
+        // Wait 1 second gap, then start typing subtitle (5 seconds)
+        setTimeout(() => {
+          const subtitleTimer = setInterval(() => {
+            if (subtitleIndex < subtitleText.length) {
+              setDisplayedSubtitle(subtitleText.slice(0, subtitleIndex + 1));
+              subtitleIndex++;
+            } else {
+              clearInterval(subtitleTimer);
+              // Hide cursor and signal typing complete
+              setTimeout(() => {
+                setShowCursor(false);
+                setTypingComplete(true);
+              }, 500);
+            }
+          }, subtitleInterval);
+        }, gapDuration);
       }
     }, titleInterval);
 
@@ -143,10 +150,10 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-              What I <span className="gradient-text">Specialize</span> In
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 tracking-wide">
+              WHAT I CAN <span className="gradient-text">BUILD</span> FOR YOUR BUSINESS
             </h2>
-            <SpecializationsCarousel />
+            <SpecializationsCarousel startAutoSwipe={typingComplete} />
           </motion.div>
 
           {/* Tech categories */}
