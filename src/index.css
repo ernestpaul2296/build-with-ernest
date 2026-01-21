@@ -6,74 +6,74 @@
 
 @layer base {
   :root {
-    --background: 215 33% 23%;
-    --foreground: 206 31% 90%;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 206 23% 33%;
-    --card-foreground: 206 31% 90%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 206 23% 33%;
-    --popover-foreground: 206 31% 90%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 203 24% 68%;
-    --primary-foreground: 215 33% 23%;
+    --primary: 187 92% 55%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 206 23% 42%;
-    --secondary-foreground: 206 31% 90%;
+    --secondary: 222 30% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 206 23% 35%;
-    --muted-foreground: 203 20% 75%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 203 24% 68%;
-    --accent-foreground: 215 33% 23%;
+    --accent: 187 92% 55%;
+    --accent-foreground: 222 47% 6%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 206 31% 90%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 206 23% 42%;
-    --input: 206 23% 42%;
-    --ring: 203 24% 68%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 187 92% 55%;
 
     --radius: 0.75rem;
 
     /* Custom portfolio tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(203 24% 68%) 0%, hsl(206 23% 42%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(215 33% 23%) 0%, hsl(215 33% 28%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(206 23% 38%) 0%, hsl(206 23% 33%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(203 30% 80%) 0%, hsl(206 31% 90%) 50%, hsl(203 24% 68%) 100%);
-    --glow-primary: 0 0 40px hsl(203 24% 68% / 0.3);
-    --glow-strong: 0 0 80px hsl(203 24% 68% / 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(187 92% 55%) 0%, hsl(220 90% 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 8%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(187 92% 65%) 0%, hsl(220 90% 70%) 50%, hsl(280 80% 70%) 100%);
+    --glow-primary: 0 0 40px hsl(187 92% 55% / 0.3);
+    --glow-strong: 0 0 80px hsl(187 92% 55% / 0.4);
 
-    --sidebar-background: 206 23% 33%;
-    --sidebar-foreground: 206 31% 90%;
-    --sidebar-primary: 203 24% 68%;
-    --sidebar-primary-foreground: 215 33% 23%;
-    --sidebar-accent: 206 23% 42%;
-    --sidebar-accent-foreground: 206 31% 90%;
-    --sidebar-border: 206 23% 42%;
-    --sidebar-ring: 203 24% 68%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 187 92% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 187 92% 55%;
   }
 
   .dark {
-    --background: 215 33% 23%;
-    --foreground: 206 31% 90%;
-    --card: 206 23% 33%;
-    --card-foreground: 206 31% 90%;
-    --popover: 206 23% 33%;
-    --popover-foreground: 206 31% 90%;
-    --primary: 203 24% 68%;
-    --primary-foreground: 215 33% 23%;
-    --secondary: 206 23% 42%;
-    --secondary-foreground: 206 31% 90%;
-    --muted: 206 23% 35%;
-    --muted-foreground: 203 20% 75%;
-    --accent: 203 24% 68%;
-    --accent-foreground: 215 33% 23%;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 187 92% 55%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 222 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 187 92% 55%;
+    --accent-foreground: 222 47% 6%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 206 31% 90%;
-    --border: 206 23% 42%;
-    --input: 206 23% 42%;
-    --ring: 203 24% 68%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 187 92% 55%;
   }
 }
 
