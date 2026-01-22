@@ -79,12 +79,12 @@ const Contact = () => {
             </Button>
           </motion.div>
 
-          {/* Contact grid - vertical on mobile, horizontal on desktop */}
+          {/* Contact grid */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col md:grid md:grid-cols-4 gap-4"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {contactMethods.map((method, index) => (
               <motion.div
@@ -98,21 +98,17 @@ const Contact = () => {
                     href={method.href}
                     target={method.href.startsWith("http") ? "_blank" : undefined}
                     rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex md:flex-col items-center md:items-start gap-4 md:gap-0 p-4 md:p-6 rounded-2xl gradient-card border border-border/50 hover:border-primary/50 transition-all duration-300 group"
+                    className="block p-6 rounded-2xl gradient-card border border-border/50 hover:border-primary/50 transition-all duration-300 group"
                   >
-                    <method.icon className="w-6 h-6 text-primary md:mb-3 group-hover:scale-110 transition-transform flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm text-muted-foreground mb-0.5 md:mb-1">{method.label}</p>
-                      <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{method.value}</p>
-                    </div>
+                    <method.icon className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                    <p className="text-sm text-muted-foreground mb-1">{method.label}</p>
+                    <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{method.value}</p>
                   </a>
                 ) : (
-                  <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-0 p-4 md:p-6 rounded-2xl gradient-card border border-border/50">
-                    <method.icon className="w-6 h-6 text-primary md:mb-3 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm text-muted-foreground mb-0.5 md:mb-1">{method.label}</p>
-                      <p className="text-sm font-medium">{method.value}</p>
-                    </div>
+                  <div className="block p-6 rounded-2xl gradient-card border border-border/50">
+                    <method.icon className="w-6 h-6 text-primary mb-3" />
+                    <p className="text-sm text-muted-foreground mb-1">{method.label}</p>
+                    <p className="text-sm font-medium">{method.value}</p>
                   </div>
                 )}
               </motion.div>

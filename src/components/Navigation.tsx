@@ -45,15 +45,9 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Profile Photo in Circle */}
-            <a href="#" className="flex items-center gap-2">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/50 hover:border-primary transition-colors">
-                <img 
-                  src="/profile-photo.png" 
-                  alt="Ernest Paul" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            {/* Logo */}
+            <a href="#" className="text-xl font-bold gradient-text">
+              EP
             </a>
 
             {/* Desktop Navigation */}
