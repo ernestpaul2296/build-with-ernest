@@ -48,7 +48,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Profile Photo in Circle */}
             <a href="#" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50 hover:border-primary transition-colors">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/50 hover:border-primary transition-colors">
                 <img 
                   src={profilePhoto} 
                   alt="Ernest Paul" 
