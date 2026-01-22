@@ -6,6 +6,7 @@ import TechStack from "@/components/TechStack";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingResumeButton from "@/components/FloatingResumeButton";
 
 const Index = () => {
   return (
@@ -30,6 +31,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
+      <FloatingResumeButton />
     </div>
   );
 };
