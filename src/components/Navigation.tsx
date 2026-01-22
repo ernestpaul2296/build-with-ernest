@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/assets/profile-photo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +49,7 @@ const Navigation = () => {
             <a href="#" className="flex items-center gap-2">
               <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/50 hover:border-primary transition-colors">
                 <img 
-                  src={profilePhoto} 
+                  src="/profile-photo.png" 
                   alt="Ernest Paul" 
                   className="w-full h-full object-cover"
                 />
