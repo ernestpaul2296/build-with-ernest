@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,9 +46,15 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <a href="#" className="text-xl font-bold gradient-text">
-              EP
+            {/* Profile Photo in Circle */}
+            <a href="#" className="flex items-center gap-2">
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50 hover:border-primary transition-colors">
+                <img 
+                  src={profilePhoto} 
+                  alt="Ernest Paul" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </a>
 
             {/* Desktop Navigation */}
